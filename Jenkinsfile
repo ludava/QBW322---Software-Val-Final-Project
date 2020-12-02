@@ -3,15 +3,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn -B -DskipTests clean package'
+        bat(script: 'mvn -B -DskipTests clean package', encoding: 'UTF-8')
       }
     }
 
     stage('Test') {
       steps {
-        sh 'mvn test'
         echo 'This is the first test case - QBW___'
         echo 'Test 2  - QBW___'
+        bat(script: 'mvn test', encoding: 'UTF-8')
       }
     }
 
